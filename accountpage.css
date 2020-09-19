@@ -1,0 +1,94 @@
+@font-face {
+    font-family: Ripple;
+    src: url(http://Localhost/Project/assets/fonts/Ripple/Ripple-Regular.woff);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    height: auto;
+    width: 100%;
+    background-color: #E8F1F2;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+#logo {
+    margin: 0% 23.5%;
+    top: 0px;
+    width: 100px;
+    height: 70px;
+}
+
+.navigation {
+    background-color: #E8F1F2;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    padding: 0;
+}
+
+.navigation a {
+    font-family: Ripple;
+    float: left;
+    color: #17202A;
+    text-align: left;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navigation a:hover {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation a.active {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation-right {
+    font-family: Ripple;
+    float: right;
+}
+
+.account-navigation {
+    width: 200px;
+    margin: 0, 10%;
+}
+
+.account-navigation a {
+    background-color: #eee;
+    /* Grey background color */
+    color: black;
+    /* Black text color */
+    display: block;
+    /* Make the links appear below each other */
+    padding: 12px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove underline from links */
+}
+
+.account-navigation a:hover {
+    background-color: #ccc;
+    /* Dark grey background on mouse-over */
+}
+
+.account-navigation a.active {
+    background-color: #4CAF50;
+    /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+#alerts {
+    font-family: Ripple;
+    position: absolute;
+    color: red;
+    left: 100%;
+    top: 125%;
+}

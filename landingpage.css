@@ -1,0 +1,125 @@
+@font-face {
+    font-family: Ripple;
+    src: url(http://Localhost/Project/assets/fonts/Ripple/Ripple-Regular.woff);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    height: auto;
+    width: 100%;
+    background-color: #E8F1F2;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+#logo {
+    margin: 0% 23.5%;
+    top: 0px;
+    width: 100px;
+    height: 70px;
+}
+
+.navigation {
+    background-color: #E8F1F2;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    padding: 0;
+}
+
+.navigation a {
+    font-family: Ripple;
+    float: left;
+    color: #17202A;
+    text-align: left;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navigation a:hover {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation a.active {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation-right {
+    font-family: Ripple;
+    float: right;
+}
+
+.information {
+    margin: 5% 0%;
+    font-family: Ripple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.slideshow-container {
+    max-width: 400px;
+    max-height: 500px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+#alerts {
+    font-family: Ripple;
+    color: red;
+    left: 1%;
+    position: absolute;
+    top: 100px;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
