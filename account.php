@@ -1,7 +1,7 @@
-<?php   require_once 'C:/xampp/htdocs/Project/scripts/authenticator.php'; 
+<?php   require_once '/opt/lampp/htdocs/TECHTEAM-SITE/TECHTEAM-SITE/scripts/authenticator.php'; 
 
 if(!$_SESSION["username"]){
-	 header("location: http://Localhost/Project/register.php");
+	 header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/register.php");
 }
 
 if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SESSION["gender"] or !$_SESSION["birthday"]) {
@@ -13,14 +13,14 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 <html>
 <head>
 	<title> TechTeam </title>
-	<link rel="stylesheet" href="http://Localhost/Project/account.css">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css">
 </head>
 
 <body>
 	<div class="background">
 			<div class="navigation">
-				<img src="http://Localhost/Project/assets/logo.png" id="logo">
-				<a href="http://Localhost/Project/loggedin.php">Home</a>
+				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
+				<a href="<?php echo htmlspecialchars($_SERVER["http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php"]);?>">Home</a>
 				<a href="#products">Products</a>
 				<a href="#about">About</a>
 				<div class="navigation-right">
@@ -36,7 +36,7 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 			<?php endif; ?>
 			
 			<div class="account-navigation">
-				<img src="http://Localhost/Project/assets/images/user-icon.png" id="user-icon">
+				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/images/user-icon.png" id="user-icon">
 				<a href="#" class="active">Account</a>
 				<a href="#">Order Status</a>
 				<a href="#">Link 2</a>

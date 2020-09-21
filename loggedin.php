@@ -1,7 +1,7 @@
-<?php   require_once 'C:/xampp/htdocs/Project/scripts/authenticator.php'; 
+<?php   require_once '/opt/lampp/htdocs/TECHTEAM-SITE/TECHTEAM-SITE/scripts/authenticator.php'; 
 
 if(!$_SESSION["username"]){
-	 header("location: http://Localhost/Project/register.php");
+	 header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/register.php");
 }
 
 if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SESSION["gender"] or !$_SESSION["birthday"]) {
@@ -12,19 +12,19 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 <html>
 <head>
 	<title> TechTeam </title>
-	<link rel="stylesheet" href="http://Localhost/Project/landingpage.css">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/landingpage.css">
 </head>
 
 <body>
 	<div class="background">
 			<div class="navigation">
-				<img src="http://Localhost/Project/assets/logo.png" id="logo">
+				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
 				<a>Home</a>
 				<a href="#products">Products</a>
 				<a href="#about">About</a>
 				<div class="navigation-right">
 					<a href="loggedin.php?logout=1">Logout</a>
-					<a href="http://Localhost/Project/account.php">Account</a>
+					<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>
 				</div>
 			</div>
 			<?php if($bool): ?>
@@ -40,15 +40,15 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 			
 			<div class="slideshow-container">
 				<div class="mySlides fade">
-					<img src="http://Localhost/Project/assets/images/logo.png" style="width:100%">
+					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/logo.png" style="width:100%">
 				</div>
 
 				<div class="mySlides fade">
-					<img src="http://Localhost/Project/assets/images/sample program.png" style="width:100%">
+					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/sample program.png" style="width:100%">
 				</div>
 
 				<div class="mySlides fade">
-					<img src="http://Localhost/Project/assets/images/thanos.png" style="width:100%">
+					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/thanos.png" style="width:100%">
 				</div>
 
 		</div>

@@ -1,17 +1,17 @@
 
-<?php   require_once 'C:/xampp/htdocs/Project/scripts/authenticator.php'; ?>
+<?php   require_once '/opt/lampp/htdocs/TECHTEAM-SITE/TECHTEAM-SITE/scripts/authenticator.php'; ?>
 
 <html>
 <head>
 	<title> TechTeam </title>
-	<link rel="stylesheet" href="http://Localhost/Project/credentials.css">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/credentials.css">
 </head>
 
 <body>
 	<div class="background">
 			<div class="navigation">
-				<img src="http://Localhost/Project/assets/logo.png" id="logo">
-				<a href="http://Localhost/Project/home.html">Home</a>
+				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/home.html">Home</a>
 				<a href="#products">Products</a>
 				<a href="#support">About</a>
 				<div class="navigation-right">
@@ -30,16 +30,16 @@
 						<button type="button" class="choose-btn" onclick="SignUp()"> Sign Up</button>
 				</div>
 				
-				<form id="SignUp" class="form-input" action="http://Localhost/Project/register.php" method="post">
-					<input type="text" name="username" value= "<?php echo $username; ?>" class="form-textbox" placeholder="Username">
+				<form id="SignUp" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+					<input type="text" name="username" value= "<?php echo $username; ?>" class="form-textbox" placeholder="Full Name">
 					<input type="text" name="email" value= "<?php echo $email; ?>" class="form-textbox" placeholder="Email Address">
 					<input type="password" name="password" class="form-textbox" placeholder="Password">
 					<input type="password" name="cnfrmPassword" class="form-textbox" placeholder="Confirm Password">
 					<button type="submit" name="register-btn" class="submit-button">Proceed</button>
 				</form>	
 				
-				<form id="Login" class="form-input" action="http://Localhost/Project/register.php" method="post">
-					<input type="text" name="username" value= "<?php echo $username; ?>" class="form-textbox" placeholder="Username">
+				<form id="Login" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+					<input type="text" name="email" value= "<?php echo $email; ?>" class="form-textbox" placeholder="Email Address">
 					<input type="password" name="password" class="form-textbox" placeholder="Password">
 					<button type="submit" name="login-btn" class="submit-button" >Proceed</button>
 				</form>	
@@ -51,7 +51,7 @@
 							document.getElementById("SignUp").style.left = "50px";
 							document.getElementById("buttons").style.left = "110px";
 						</script>
-						<h4> Could not register! Try again! </h4>
+						<h4>Could not register! Try again! </h4>
 					</div>
 					<div id="error_reg">
 					<?php foreach($error_reg as $error): ?>
@@ -67,7 +67,7 @@
 							document.getElementById("SignUp").style.left = "450px";
 							document.getElementById("buttons").style.left = "0px";
 						</script>
-						<h4> Could not Login! Try again! </h4> 
+						<h4>Could not Login! Try again! </h4> 
 					</div>
 					<div id="error_log">
 					<?php foreach($error_log as $error): ?>
