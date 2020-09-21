@@ -18,10 +18,8 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 <body>
 	<div class="background">
 			<div class="navigation">
-				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
 				<a>Home</a>
-				<a href="#products">Products</a>
-				<a href="#about">About</a>
+				<a href="#about">About us</a>
 				<div class="navigation-right">
 					<a href="loggedin.php?logout=1">Logout</a>
 					<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>
@@ -57,7 +55,24 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 		<span class="dot"></span>
 		<span class="dot"></span>
 		<span class="dot"></span>
-	</div>		
+	</div>	
+	
+	<div class="rows">
+            <div class="information"> 
+                <h1>Products</h1>
+            </div>
+            <div class="product-navigation">
+                <a href="#" class="active">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/game.png" id="products">
+                </a>
+                <a href="#">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/sample program.png" id="products">
+                </a>
+                <a href="#">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/POS.png" id="products">
+                </a>
+            </div>
+        </div>
 </div>
 	
 <script>

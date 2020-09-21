@@ -19,10 +19,8 @@ if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SE
 <body>
 	<div class="background">
 			<div class="navigation">
-				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
-				<a href="<?php echo htmlspecialchars($_SERVER["http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php"]);?>">Home</a>
-				<a href="#products">Products</a>
-				<a href="#about">About</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
+				<a href="#about">About Us</a>
 				<div class="navigation-right">
 					<a href="account.php?logout=1">Logout</a>
 					<a>Account</a>
