@@ -12,7 +12,7 @@
 			<div class="navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/logo.png" id="logo">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/home.html">Home</a>
-				<a href="#products">Products</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.html">Products</a>
 				<a href="#support">About</a>
 				<div class="navigation-right">
 					<a>Login/Register</a>
