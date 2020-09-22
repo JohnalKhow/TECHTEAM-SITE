@@ -5,8 +5,11 @@ if(!$_SESSION["username"]){
 }
 
 if(!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_SESSION["gender"] or !$_SESSION["birthday"]) {
-	$bool= true;
+	$bool=true;
 	}
+else{
+	$bool=false;
+}
 ?>
 
 <html>
