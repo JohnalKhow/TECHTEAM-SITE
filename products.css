@@ -1,0 +1,219 @@
+@font-face {
+    font-family: Ripple;
+    src: url(http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/fonts/Ripple/Ripple-Regular.woff);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    height: auto;
+    width: 100%;
+    background-color: #E8F1F2;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+
+.rows{
+	width: 1400px;
+	height: 550px;
+	position: relative;
+	margin: 6% auto;
+	background: #E8F1F2;
+	padding: 5px;
+	overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 3px 3px 9px 3px rgba(0, 0, 0, .2);
+}
+
+.navigation {
+    background-color: #E8F1F2;
+    box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    padding: 0;
+}
+
+.navigation a {
+    font-family: Ripple;
+    float: left;
+    color: #17202A;
+    text-align: left;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navigation a:hover {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation a.active {
+    background-color: #BFC9CA;
+    color: black;
+}
+
+.navigation-right {
+    font-family: Ripple;
+    float: right;
+}
+
+.product-name{
+    font-family: Ripple;
+    font-size: 20pt;
+    text-align: left;
+    float: left;
+    top: 2%;
+    left: 4%;
+    position: relative;
+
+}
+.body-text{
+    font-family: Ripple;
+    font-size: 16pt;
+    text-align: left;
+    float: left;
+    top: 10%;
+    left: 10%;
+    position: relative;
+
+}
+
+.bullets{
+    font-family: Ripple;
+    font-size: 12pt;
+    text-align: left;
+    float: right;
+    top: 30%;
+    right: 33%;
+    position: absolute;
+
+}
+.form-input {
+    top: 35%;
+    float: right;
+    right: -25%;
+    position: relative;
+}
+
+.form-input-not {
+    top: 70%;
+    float: right;
+    right: -25%;
+    position: relative;
+}
+.form-textbox{
+	padding: 10px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	text-align: center;
+	outline: none;
+	background: transparent;
+}
+
+.form-textbox-lengthy{
+    width: 100%;
+	padding: 10px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	text-align: center;
+	outline: none;
+	background: transparent;
+}
+.description{
+    font-family: Ripple;
+    font-size: 12pt;
+    text-align: right;
+    float: right;
+    top: 10%;
+    right: 20%;
+    position: relative;
+
+}
+
+.slideshow-container {
+    max-width: 400px;
+    max-height: 500px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    float: left;
+}
+
+.mySlides {
+    display: none;
+    float: left;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    top: 10%;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.buy{
+    padding: 10px 10px; 
+    cursor: pointer;
+    right: 5%;
+    font-family: Ripple;
+    font-size: 12pt;
+    position: absolute;
+    float: right;
+	background: #054D9F;
+	color: white;
+	border: 0;
+	outline: none;
+	border-radius: 10%;
+
+}
+
+#alerts{
+    color: red;
+    top:28%;
+    left: 58%;
+    position: relative;
+}

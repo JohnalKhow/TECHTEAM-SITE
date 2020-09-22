@@ -258,6 +258,8 @@ $countries = array("AF" => "Afghanistan",
 $error_reg=array();
 $error_log=array();
 $error_acc=array();
+$error_buy=array();
+$IMS_desc="The Inventory Management System is a fully capable blah blah blah";
 $username ="";
 $email= "";
 $project= $project2= $status= $status2= $handler= $handler2= $remarks= $remarks2= $repository = $repository2 = $proj_limit= "";
@@ -279,6 +281,10 @@ if(!empty($_SESSION['id'])){
 			$remarks2= $job["remarks2"];
 			$repository = $job["repository"];
 			$repository2 = $job["repository2"];
+			$specs1= $job["specs1"];
+			$specs2= $job["specs2"];
+			$dead1 = $job["dead1"];
+			$dead2 = $job["dead2"];
 			$proj_limit= $job["proj_limit"];
 		}
 		$_SESSION['project']=  $project;
@@ -291,7 +297,58 @@ if(!empty($_SESSION['id'])){
 		$_SESSION['remarks2'] =$remarks2;
 		$_SESSION['repository'] =$repository;
 		$_SESSION['repository2'] =$repository2;
+		$_SESSION['specs1'] =$specs1;
+		$_SESSION['specs2'] =$specs2;
+		$_SESSION['dead1'] =$dead1;
+		$_SESSION['dead2'] =$dead2;
 		$_SESSION['proj_limit'] =$proj_limit;
+}
+
+if(isset($_POST["purchase-not"])){
+	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/register.php");
+}
+
+if(isset($_POST["purchase"])){
+	$id= $_SESSION["id"];
+	if(empty($_REQUEST["project-name"]) or empty($_REQUEST["remarks"]) or empty($_REQUEST["specifications"]) or empty($_REQUEST["dead1"]))
+		array_push($error_buy,"Please fill up all fields!");
+	
+		
+
+	if($_SESSION["proj_limit"]==0)
+		array_push($error_buy,"Maximum number of orders at a time has been reached!");	
+	
+		
+
+	if(count($error_buy)==0 and $_SESSION["proj_limit"] >0){
+
+		if(!$_SESSION['project']){
+			$project= $_REQUEST["type"].'-'.$_REQUEST["project-name"];
+			$project=trim_data($project);
+			$remarks=trim_data($_REQUEST["remarks"]);
+			$specs1=trim_data($_REQUEST["specifications"]);
+			$dead1=trim_data($_REQUEST["dead1"]);
+			$proj_limit= $_SESSION[proj_limit]-1;
+			$update = "UPDATE `orders` SET project='$project',  status1='1', handler='Pending',remarks='$remarks', repository='To be updated by the project handler', specs1='$specs1', dead1='$dead1',proj_limit='$proj_limit' WHERE id='$id' ";
+			mysqli_query($sqlConnect,$update);
+			header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account_orders.php");
+		}
+
+		else if(!$_SESSION['project2']){
+			$project= $_REQUEST["type"].'-'.$_REQUEST["project-name"];
+			$project=trim_data($project);
+			$remarks=trim_data($_REQUEST["remarks"]);
+			$specs1=trim_data($_REQUEST["specifications"]);
+			$dead1=trim_data($_REQUEST["dead1"]);
+			$proj_limit= $_SESSION[proj_limit]-1;
+			$update = "UPDATE `orders` SET project2='$project',  status2='1', handler2='Pending',remarks2='$remarks', repository2='To be updated by the project handler', specs2='$specs1', dead2='$dead1',proj_limit='$proj_limit' WHERE id='$id' ";
+			mysqli_query($sqlConnect,$update);
+			header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account_orders.php");
+		
+		}
+		
+	}
+
 }
 
 if(isset($_GET["logout"])){
@@ -326,15 +383,7 @@ if(isset($_POST["register-btn"])){
 		$password = password_hash($password, PASSWORD_DEFAULT);
 		$register = "INSERT INTO `credentials` (`username`, `pass`, `email`, `id`, `company`, `country`, `city`, `gender`,  `birthday`, `priveleges`) VALUES ('$username', '$password', '$email', NULL, NULL, NULL, NULL, NULL, NULL, '1' )";
 		mysqli_query($sqlConnect,$register);
-		$_SESSION['username']=$username;
-		$_SESSION['email']=$email;
-		$_SESSION['company'] =NULL;
-		$_SESSION['country'] =NULL;
-		$_SESSION['city'] =NULL;
-		$_SESSION['gender'] =NULL;
-		$_SESSION['birthday'] =NULL;
-		$_SESSION['priveleges'] =1;
-		header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php");
+		header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/register.php");
 	}
 }
 
@@ -359,21 +408,28 @@ if(isset($_POST["login-btn"])){
 		$gender = $SR["gender"];
 		$birthday = $SR["birthday"];
 		$priveleges = $SR["priveleges"];
+		$logcount = $SR["logcount"];
 	}
+
 	if(count($error_log)==0){
 		$password= trim_data($password);
 		if(password_verify($password, $passwordAuth)){
-		$_SESSION['username']= $username;
-		$_SESSION['email']= $email;
-		$_SESSION['id']=$id;
-		$_SESSION['company'] =$company;
-		$_SESSION['country'] =$country;
-		$_SESSION['city'] =$city;
-		$_SESSION['gender'] =$gender;
-		$_SESSION['birthday'] =$birthday;
-		$_SESSION['priveleges'] =$priveleges;
-		$_SESSION['key']=$passwordAuth;
-
+			$_SESSION['username']= $username;
+			$_SESSION['email']= $email;
+			$_SESSION['id']=$id;
+			$_SESSION['company'] =$company;
+			$_SESSION['country'] =$country;
+			$_SESSION['city'] =$city;
+			$_SESSION['gender'] =$gender;
+			$_SESSION['birthday'] =$birthday;
+			$_SESSION['priveleges'] =$priveleges;
+			$_SESSION['key']=$passwordAuth;
+			if($logcount==0){
+				$register = "INSERT INTO `orders` (`id` , `project`, `project2`, `status1`, `status2`, `handler`, `handler2`, `remarks`, `remarks2`, `repository`, `repository2`, `specs1`, `specs2`, `dead1`, `dead2`, `proj_limit`) VALUES ($id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'To be updated by the project handler', 'To be updated by the project handler', NULL, NULL, NULL, NULL,'2')";
+				mysqli_query($sqlConnect,$register);
+				$update = "UPDATE `credentials` SET logcount='1' WHERE id='$id'";
+				mysqli_query($sqlConnect,$update);
+			}
 		header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php");
 	}
 	else {
@@ -496,9 +552,11 @@ if(isset($_POST["cancel-1"])){
 	$_SESSION["handler"]="";
 	$_SESSION["remarks"]="";
 	$_SESSION["repository"]="";
-	$proj_limit= $_SESSION["proj_limit"] - 1;
+	$_SESSION["specs1"]="";
+	$_SESSION["dead1"]="";
+	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$id= $_SESSION["id"];
-	$update = "UPDATE `orders` SET project=NULL, status1=NULL, handler=NULL, remarks=NULL, repository='To be updated by the project handler', proj_limit='$proj_limit' WHERE id='$id' ";
+	$update = "UPDATE `orders` SET project=NULL, status1=NULL, handler=NULL, remarks=NULL, repository='To be updated by the project handler', specs1=NULL, dead1=NULL,proj_limit='$proj_limit' WHERE id='$id' ";
 	mysqli_query($sqlConnect,$update);
 }
 
@@ -508,9 +566,11 @@ if(isset($_POST["cancel-2"])){
 	$_SESSION["handler2"]="";
 	$_SESSION["remarks2"]="";
 	$_SESSION["repository2"]="";
-	$proj_limit= $_SESSION["proj_limit"] - 1;
+	$_SESSION["specs2"]="";
+	$_SESSION["dead2"]="";
+	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$id= $_SESSION["id"];
-	$update = "UPDATE `orders` SET project2=NULL, status2=NULL, handler2=NULL, remarks2=NULL, repository2='To be updated by the project handler', proj_limit='$proj_limit' WHERE id='$id' ";
+	$update = "UPDATE `orders` SET project2=NULL, status2=NULL, handler2=NULL, remarks2=NULL, repository2='To be updated by the project handler',  specs2=NULL, dead2=NULL, proj_limit='$proj_limit' WHERE id='$id' ";
 	mysqli_query($sqlConnect,$update);
 }
 

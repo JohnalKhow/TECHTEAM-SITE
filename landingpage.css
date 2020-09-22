@@ -78,12 +78,7 @@
     text-decoration: none;
 }
 
-.slideshow-container {
-    max-width: 400px;
-    max-height: 500px;
-    position: relative;
-    margin: auto;
-}
+
 
 .product-navigation {
     left: 5%;
@@ -102,6 +97,21 @@
    
 }
 
+#alerts {
+    font-family: Ripple;
+    color: red;
+    left: 1%;
+    position: absolute;
+    top: 100px;
+}
+
+.slideshow-container {
+    max-width: 400px;
+    max-height: 500px;
+    position: relative;
+    margin: auto;
+}
+
 .mySlides {
     display: none;
 }
@@ -117,13 +127,7 @@
     transition: background-color 0.6s ease;
 }
 
-#alerts {
-    font-family: Ripple;
-    color: red;
-    left: 1%;
-    position: absolute;
-    top: 100px;
-}
+
 
 .active,
 .dot:hover {
