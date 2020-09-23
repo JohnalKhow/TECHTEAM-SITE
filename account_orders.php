@@ -43,6 +43,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 					<h4> Finish setting up account!</h4>
 			</div>
 			<?php endif; ?>
+			
 			<?php if(empty($_SESSION['project']) and empty($_SESSION['project2'])): ?>
 			<div class="project-alerts">
 					<h4> No active projects!</h4>

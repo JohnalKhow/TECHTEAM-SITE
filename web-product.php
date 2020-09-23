@@ -82,7 +82,7 @@
 				<br><br>
 				<label id="labels">Deadline: </label> 
                 <input type="date" id="deadline" name="dead1" >
-                <input  type="hidden" name="type" value="Web Solution" >
+                <input  type="hidden" name="type" value="WS" >
 				<button type="submit" name="purchase" class="buy">Order</button>
             </form>
 

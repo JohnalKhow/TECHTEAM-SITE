@@ -10,8 +10,8 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	$bool = false;
 }
 
-if($_SESSION["priveleges"]==0) {
-	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php");
+if ($_SESSION["priveleges"]==1){
+	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
 
 
@@ -37,27 +37,11 @@ if($_SESSION["priveleges"]==0) {
 		</div>
 
 		<div class="rows">
-			<form id="Account" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-				<label id="labels">Full Name and Email :</label><br>
-				<input type="text" name="username" value="<?php echo $_SESSION["username"]; ?>" class="form-textbox-lengthy" placeholder="Full Name">
-				<input type="text" name="email" value="<?php echo $_SESSION["email"]; ?>" class="form-textbox" placeholder="Email Address">
-				<br><br>
-				<label id="labels">Birthday :</label> 
-				<input type="date" id="birthday" name="birthday" value="<?php echo $_SESSION["birthday"]; ?>">
-				<label id="labels">Gender :</label> 
-				<label id="labels">Male </label>
-				<input type="radio" name="gender" value="Male" <?php echo ($_SESSION['gender'] == "Male") ? 'checked="checked"' : ''; ?>>
-				<label id="labels">Female </label>
-				<input type="radio" name="gender" value="Female" <?php echo ($_SESSION['gender'] == "Female") ? 'checked="checked"' : ''; ?>>
-				<label id="labels">LGBTQ+ </label>
-				<input type="radio" name="gender" value="LGBTQ+" <?php echo ($_SESSION['gender'] == "LGBTQ+") ? 'checked="checked"' : ''; ?>>
-				<br><br>
-				<label id="labels">Country :</label><br>
 				<select name="country" >
 					<?php foreach ($countries as $key => $val) { ?>
 						<option value="<?php echo $key; ?>" <?php
 							if ($key == $_SESSION['country']) echo ' selected="selected"'; ?>><?php echo $val; ?></option><?php
-																																		} ?>
+																											} ?>
 				</select>
 				<br><br>
 				<label id="labels">Company Details :</label><br>
@@ -92,9 +76,9 @@ if($_SESSION["priveleges"]==0) {
 
 			<div class="account-navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/user-icon.png" id="user-icon">
-				<a href="" class="active">Account</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account_orders.php">Order Status</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/order_history.php">Order History</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php" >Order History</a>
+				<a href="" class="active">Job Orders</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/root-admin.php">Root priveleges</a>
 			</div>
 
 		</div>

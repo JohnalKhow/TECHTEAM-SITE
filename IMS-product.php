@@ -82,7 +82,7 @@
 				<br><br>
 				<label id="labels">Deadline: </label> 
                 <input type="date" id="deadline" name="dead1" >
-                <input  type="hidden" name="type" value="Inventory Management System" >
+                <input  type="hidden" name="type" value="IMS" >
 				<button type="submit" name="purchase" class="buy">Order</button>
             </form>
 
