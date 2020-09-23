@@ -22,7 +22,7 @@ else{
 	<div class="background">
 			<div class="navigation">
 				<a>Home</a>
-				<a href="#about">About us</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutusloggedin.php">About us</a>
 				<div class="navigation-right">
 					<a href="loggedin.php?logout=1">Logout</a>
 					<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>

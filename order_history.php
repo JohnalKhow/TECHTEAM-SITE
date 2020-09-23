@@ -15,8 +15,10 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	
 	$data=mysqli_query($sqlConnect,"SELECT * FROM `history` WHERE id='$id' ORDER BY date1 DESC ");
 	
- 
 
+	if($_SESSION["priveleges"]==0) {
+		header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php");
+	}
 
 ?>
 
@@ -24,31 +26,31 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 <head>
 	<title> TechTeam </title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=6">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=7">
 </head>
 
 <body>
 	<div class="background">
 			<div class="navigation">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-				<a href="#about">About us</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutusloggedin.php">About us</a>
 				<div class="navigation-right">
 					<a href="account.php?logout=1">Logout</a>
 					<a>Account</a>
 				</div>
 			</div>
 			
-			<?php if($bool): ?>
-			<div id="alerts">
-					<h4> Finish setting up account!</h4>
-			</div>
-			<?php endif; ?>
+			
 			
 			
 
 
 			<div class=rows>
-
+			<?php if($bool): ?>
+			<div class="alerts">
+					<h4> Finish setting up account!</h4>
+			</div>
+			<?php endif; ?>
 			<div class="account-navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/user-icon.png" id="user-icon">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>

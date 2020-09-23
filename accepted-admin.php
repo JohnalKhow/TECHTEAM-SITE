@@ -13,8 +13,8 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 if ($_SESSION["priveleges"]==1){
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
-
-$data=mysqli_query($sqlConnect,"SELECT * FROM `history` ");
+$email=$_SESSION["email"];
+$data=mysqli_query($sqlConnect,"SELECT * FROM `history` WHERE handler='$email' AND status1!='Completed' ");
 
 
 ?>
@@ -40,9 +40,9 @@ $data=mysqli_query($sqlConnect,"SELECT * FROM `history` ");
 
 			<div class="account-navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/user-icon.png" id="user-icon">
-				<a href="" class="active">Order History</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/orders-admin.php">Job Orders</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/accepted-admin.php">Accepted Orders</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php" >Order History</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/orders-admin.php" >Job Orders</a>
+				<a href="" class="active">Accepted Orders</a>
 			</div>
 
 			<div class="order-history">
@@ -59,7 +59,15 @@ $data=mysqli_query($sqlConnect,"SELECT * FROM `history` ");
 							?>	
 				<?php endwhile; ?>
 				<?php echo "</table>"; ?>
-				</div>
+			</div>
+
+			<form id="update-order" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<label id="labels">Enter Order ID:</label><br>
+				<input type="text" name="order-id"  class="form-textbox" placeholder="Order ID e.g. 1">
+				<input type="text" name="statusid"  class="form-textbox" maxlength="1" placeholder="Status">
+				<input type="text" name="repositoryid"  class="form-textbox" placeholder="Repository">
+				<button type="submit" name="update-btn" class="update-button">Update</button>
+			</form>
 
 		</div>
 

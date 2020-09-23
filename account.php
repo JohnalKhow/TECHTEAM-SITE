@@ -29,7 +29,7 @@ if($_SESSION["priveleges"]==0) {
 	<div class="background">
 		<div class="navigation">
 			<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-			<a href="#about">About us</a>
+			<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutusloggedin.php">About us</a>
 			<div class="navigation-right">
 				<a href="account.php?logout=1">Logout</a>
 				<a>Account</a>

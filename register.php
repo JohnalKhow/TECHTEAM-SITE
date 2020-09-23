@@ -4,14 +4,14 @@
 <html>
 <head>
 	<title> TechTeam </title>
-	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/credentials.css">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/credentials.css?version=4">
 </head>
 
 <body>
 	<div class="background">
 			<div class="navigation">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/home.html">Home</a>
-				<a href="#support">About us</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutus.php">About us</a>
 				<div class="navigation-right">
 					<a>Login/Register</a>
 				</div>
@@ -19,7 +19,7 @@
 			
 			<div class="rows">
 				<div class="information"> 
-					<h3> Hello </h3>
+					<h3> Welcome to TECHTEAM </h3>
 				</div>
 				
 				<div class="button-container">

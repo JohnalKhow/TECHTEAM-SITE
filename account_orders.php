@@ -13,7 +13,12 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 } else {
 	$bool = false;
 }
-	
+
+
+if($_SESSION["priveleges"]==0) {
+	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php");
+}
+
 ?>
 
 <html>
@@ -28,7 +33,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	<div class="background">
 			<div class="navigation">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-				<a href="#about">About us</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutusloggedin.php">About us</a>
 				<div class="navigation-right">
 					<a href="account.php?logout=1">Logout</a>
 					<a>Account</a>
@@ -97,9 +102,6 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 							</div>
 						  </div>
 						<label id="status"> Bug Fixing</label>
-						<form class="cancel" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-							<button type="submit" name="cancel-2" class="complete-cancel">Cancel Order</button>
-						</form>
 						<br>
 					<?php elseif($_SESSION['status2']==5): ?>
 						<label id="label">Status: 100%</label> 
@@ -116,7 +118,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 					<br><label id="label">Customer Remarks:  </label> 
 					<label id="body-text"> <?php echo $_SESSION["remarks2"]; ?>  </label> <br>
 					<label id="label">Specifications:  </label> 
-					<label id="body-text"> <?php echo $_SESSION["remarks2"]; ?>  </label> <br>
+					<label id="body-text"> <?php echo $_SESSION["specs2"]; ?>  </label> <br>
 					<label id="label">Handler:  </label> 
 					<label id="body-text">  <?php echo $_SESSION["handler2"]; ?> </label><br>
 					<label id="label">Repository Link:  </label> 
@@ -175,9 +177,6 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 							</div>
 						  </div>
 						<label id="status"> Bug Fixing</label>
-						<form class="cancel" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-							<button type="submit" name="cancel-1" class="complete-cancel">Cancel Order</button>
-						</form>
 						<br>
 					<?php elseif($_SESSION['status']==5): ?>
 						<label id="label">Status: 100%</label> 
@@ -194,7 +193,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 					<br><label id="label">Customer Remarks:  </label> 
 					<label id="body-text"> <?php echo $_SESSION["remarks"]; ?>  </label> <br>
 					<label id="label">Specifications:  </label> 
-					<label id="body-text"> <?php echo $_SESSION["remarks"]; ?>  </label> <br>
+					<label id="body-text"> <?php echo $_SESSION["specs1"]; ?>  </label> <br>
 					<label id="label">Handler:  </label> 
 					<label id="body-text">  <?php echo $_SESSION["handler"]; ?> </label><br>
 					<label id="label">Repository Link:  </label> 
@@ -251,10 +250,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 							<div class="w3-container w3-blue w3-round-xlarge" style="width:80%; height: 10%; ">
 							</div>
 						  </div>
-						<label id="status"> Bug Fixing</label>
-						<form class="cancel" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-							<button type="submit" name="cancel-1" class="complete-cancel">Cancel Order</button>
-						</form>
+						<label id="status"> Bug Fixing</lab>
 						<br>
 					<?php elseif($_SESSION['status']==5): ?>
 						<label id="label">Status: 100%</label> 
@@ -322,9 +318,6 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 							</div>
 						  </div>
 						<label id="status"> Bug Fixing</label>
-						<form class="cancel" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-							<button type="submit" name="cancel-2" class="complete-cancel">Cancel Order</button>
-						</form>
 						<br>
 					<?php elseif($_SESSION['status2']==5): ?>
 						<label id="label">Status: 100%</label> 

@@ -14,6 +14,8 @@ if ($_SESSION["priveleges"]==1){
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
 
+$data=mysqli_query($sqlConnect,"SELECT * FROM `history` WHERE handler='Pending'");
+
 
 ?>
 
@@ -22,64 +24,48 @@ if ($_SESSION["priveleges"]==1){
 <head>
 	<title> TechTeam </title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=8">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=12">
 </head>
 
 <body>
 	<div class="background">
 		<div class="navigation">
-			<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-			<a href="#about">About us</a>
+			<a>Admin Control</a>
 			<div class="navigation-right">
 				<a href="account.php?logout=1">Logout</a>
-				<a>Account</a>
 			</div>
 		</div>
 
 		<div class="rows">
-				<select name="country" >
-					<?php foreach ($countries as $key => $val) { ?>
-						<option value="<?php echo $key; ?>" <?php
-							if ($key == $_SESSION['country']) echo ' selected="selected"'; ?>><?php echo $val; ?></option><?php
-																											} ?>
-				</select>
-				<br><br>
-				<label id="labels">Company Details :</label><br>
-				<input type="text" name="company" class="form-textbox-lengthy" value="<?php echo $_SESSION["company"]; ?>" placeholder="Company Name">
-				<input type="text" name="city" id="form-textbox-lengthiest" value="<?php echo $_SESSION["city"]; ?>" placeholder="Full Company Address">
-				<br><br>
-				<label id="labels">Change Password :</label><br>
-				<input type="password" name="old-password" class="form-textbox" placeholder="Old Password">
-				<input type="password" name="new-password" class="form-textbox" placeholder="New Password">
-				<input type="password" name="cnfrmPassword" class="form-textbox" placeholder="Confirm Password"><br>
-				<button type="submit" name="save-btn" class="submit-button">Save</button>
-			</form>
-
-			<?php if ($bool) : ?>
-				<div class="alerts">
-					<h4> Finish setting up account!</h4>
-				</div>
-			<?php endif; ?>
-
-
-
-			<?php if (count($error_acc) > 0) : ?>
-				<div id="errors">
-					<h4>Could not save!</h4>
-				</div>
-				<div id="error_acc">
-					<?php foreach ($error_acc as $error) : ?>
-						<li><?php echo $error . "<br>"; ?> </li>
-					<?php endforeach; ?>
-				</div>
-			<?php endif; ?>
 
 			<div class="account-navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/user-icon.png" id="user-icon">
 				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php" >Order History</a>
 				<a href="" class="active">Job Orders</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/root-admin.php">Root priveleges</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/accepted-admin.php">Accepted Orders</a>
 			</div>
+
+			<div class="order-history">
+				<?php echo "<table style='width:110%'><tr><td>Order ID:</td><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>"; 
+					 ?> 
+				<?php while($SR=mysqli_fetch_array($data)): 
+							$project= $SR["project"];
+							$handler = $SR["handler"];
+							$status = $SR["status1"];
+							$repository = $SR["repository"];
+							$date = $SR["date1"]; 
+							$orderid= $SR["orderid"];
+							echo "<tr><td>".$orderid. "</td> <td>". $project . "</td> <td>". $handler . "</td><td>". $status ."</td><td>". $repository . "</td><td>" . $date ."</td></tr> <tr></tr>"; 
+							?>	
+				<?php endwhile; ?>
+				<?php echo "</table>"; ?>
+			</div>
+
+			<form id="accept-order" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<label id="labels">Enter Order ID:</label><br>
+				<input type="text" name="order-id"  class="form-textbox-lengthy" placeholder="Order ID e.g. 1">
+				<button type="submit" name="accept-btn" class="accept-button">Accept</button>
+			</form>
 
 		</div>
 

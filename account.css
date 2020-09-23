@@ -18,7 +18,7 @@
 }
 
 .rows{
-	width: 1300px;
+	width: 1650px;
 	height: 600px;
 	position: relative;
 	margin: 6% auto;
@@ -70,15 +70,18 @@
 
 #user-icon {
     top: 10%;
-    margin: 13%;
+    margin: 18%;
     width: 200px;
     height: 200px;
 }
 
+#Account{
+    left: -20%;
+}
 .account-navigation {
     width: 25%;
-    top: 6%;
-    left: 3%;
+    top: 1%;
+    left: 1%;
     float: left;
     position:absolute;
     background-color: #054D9F;
@@ -228,8 +231,8 @@
     font-size: 15px;
     float: right;
 	font-family: Ripple;
-    left: 46%;
-    top: 40%;
+    left: 60%;
+    top: 43%;
 	position: relative;
 	color: red;
 	overflow: hidden;
@@ -239,7 +242,7 @@
     float: right;
     color: red;
     font-family: Ripple;
-	left: 35%;
+	left: 48%;
 	position: relative;
 	top: 35%;
 }
@@ -314,4 +317,44 @@
     position: absolute;
     right: 20%;
     top: 10%;
+}
+
+
+#accept-order{
+    position: relative;
+    top: 85%;
+    float: right;
+    right: 25%;
+}
+
+.accept-button{
+	padding: 5px 25px; 
+    cursor: pointer;
+    right: 20%;
+    position: relative;
+    float: right;
+	background: #054D9F;
+	color: white;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+
+.update-button{
+	padding: 5px 25px; 
+    cursor: pointer;
+    position: relative;
+    float: right;
+	background: #054D9F;
+	color: white;
+    border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+
+#update-order{
+    position: relative;
+    top: 85%;
+    float: right;
+    right: 10%;
 }

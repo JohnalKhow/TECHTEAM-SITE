@@ -72,14 +72,15 @@
     position: relative;
 
 }
+
 .body-text{
     font-family: Ripple;
     font-size: 16pt;
     text-align: left;
     float: left;
     top: 10%;
-    left: 10%;
-    position: relative;
+    left: 60%;
+    position: absolute;
 
 }
 

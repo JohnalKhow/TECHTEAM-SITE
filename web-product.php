@@ -6,7 +6,7 @@
 <head>
     <title> TechTeam </title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=4">
+    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=7">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <?php if(empty($_SESSION['username'])): ?>
         <div class="navigation">
             <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/home.html" >Home</a>
-            <a href="#about">About us</a>
+            <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutus.php">About us</a>
             <div class="navigation-right">
                 <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/register.php">Login/Register</a>
             </div>
@@ -76,7 +76,7 @@
 
             <form id="Account" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <label>Order Details:</label><br>
-                <input type="text" name="project-name" class="form-textbox-lengthy" placeholder="Program Name">
+                <input type="text" name="project-name" class="form-textbox-lengthy" maxlength="8"  placeholder="Program Name">
 				<input type="text" name="remarks" class="form-textbox-lengthy" placeholder="Remarks">
 				<input type="text" name="specifications" class="form-textbox-lengthy" placeholder="Specifications e.g. Operating System">
 				<br><br>
