@@ -44,7 +44,7 @@
             </div>
 
             <div class="mySlides fade">
-                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program.png" style="width:100%">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Website_new.png" style="width:100%">
             </div>
 
         </div>

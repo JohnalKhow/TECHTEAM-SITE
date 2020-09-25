@@ -67,13 +67,13 @@ else{
             </div>
             <div class="product-navigation">
                 <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/POS-product.php">
-                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/game.png" id="products">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/POS_new.png" id="products">
                 </a>
                 <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/IMS-product.php">
-                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program.png" id="products">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program_lbl.png" id="products">
                 </a>
                 <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/web-product.php">
-                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/POS.png" id="products">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Website_lbl.png" id="products">
                 </a>
             </div>
         </div>
