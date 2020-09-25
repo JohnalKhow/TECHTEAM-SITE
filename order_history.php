@@ -26,7 +26,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 <head>
 	<title> TechTeam </title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=7">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.css?version=8">
 </head>
 
 <body>
@@ -58,7 +58,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 				<a href="#" class="active">Order History</a> 
 			</div>
 				<div class="order-history">
-				<?php echo "<table style='width:120%'><tr><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>"; 
+				<?php echo "<table style='width:120%; font-size: 13pt;'><tr><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>"; 
 					 ?> 
 				<?php while($SR=mysqli_fetch_array($data)): 
 							$counter++; 

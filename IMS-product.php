@@ -6,7 +6,7 @@
 <head>
     <title> TechTeam </title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=7">
+    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=8">
 </head>
 
 <body>
@@ -40,15 +40,11 @@
 
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/logo.png" style="width:100%">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/TECHTEAM_Logo.png" style="width:100%">
             </div>
 
             <div class="mySlides fade">
-                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/sample program.png" style="width:100%">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/game.png" style="width:100%">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program.png" style="width:100%">
             </div>
         </div>
 
@@ -98,11 +94,6 @@
     
         <br>
 
-        <div style="text-align:left">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
 
 
         </div>

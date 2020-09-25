@@ -15,7 +15,7 @@ else{
 <html>
 <head>
 	<title> TechTeam </title>
-	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/landingpage.css">
+	<link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/landingpage.css?version=1">
 </head>
 
 <body>
@@ -39,18 +39,19 @@ else{
 					<h1> Introducing, TechTeam Tech Solutions.</h1>
 			</div>
 			
-			<div class="slideshow-container">
-				<div class="mySlides fade">
-					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/logo.png" style="width:100%">
-				</div>
+			<div class="slideshow">
+			<div class="slides">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/TECHTEAM_Logo.png" style="width:100%">
+            </div>
 
-				<div class="mySlides fade">
-					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/sample program.png" style="width:100%">
-				</div>
+            <div class="slides">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program.png" style="width:100%">
+            </div>
 
-				<div class="mySlides fade">
-					<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/thanos.png" style="width:100%">
-				</div>
+            <div class="slides">
+                <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/thanos.png" style="width:100%">
+            </div>
+
 
 		</div>
 	<br>
@@ -65,11 +66,11 @@ else{
                 <h1>Products</h1>
             </div>
             <div class="product-navigation">
-				<a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/POS-product.php">
+                <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/POS-product.php">
                     <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/game.png" id="products">
                 </a>
                 <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/IMS-product.php">
-                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/sample program.png" id="products">
+                    <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/Sample_Program.png" id="products">
                 </a>
                 <a href="http://localhost/TECHTEAM-SITE/TECHTEAM-SITE/web-product.php">
                     <img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/POS.png" id="products">
@@ -79,18 +80,18 @@ else{
 </div>
 	
 <script>
-var slideIndex = 0;
+var index = 0;
 showSlides();
 
 function showSlides() {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
+  var slides = document.getElementsByClassName("slides");
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
+  index++;
+  if (index > slides.length) {index = 1}
+  slides[index-1].style.display = "block";
   setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
 </script>
