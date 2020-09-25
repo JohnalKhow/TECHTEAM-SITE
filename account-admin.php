@@ -14,7 +14,7 @@ if ($_SESSION["priveleges"]==1){
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
 
-$data=mysqli_query($sqlConnect,"SELECT * FROM `history` ");
+$data=mysqli_query($sqlConnect2,"SELECT * FROM `history` ");
 
 
 ?>

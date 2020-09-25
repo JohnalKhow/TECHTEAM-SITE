@@ -3,11 +3,13 @@ session_start();
 
 require '/opt/lampp/htdocs/TECHTEAM-SITE/TECHTEAM-SITE/scripts/private.php';
 $sqlConnect = mysqli_connect(HOST,USER,PASS);
-if(!$sqlConnect) {
+$sqlConnect2 = mysqli_connect(HOST,USER,PASS);
+if(!$sqlConnect or !$sqlConnect2) {
     die();
 }
 $selectDB = mysqli_select_db($sqlConnect,DB);
-if(!$selectDB) {
+$selectDB2 = mysqli_select_db($sqlConnect2,DB2);
+if(!$selectDB or !$selectDB2) {
     die("Can't find the database!".mysqli_error());
 }
 //INIT
@@ -265,7 +267,7 @@ $email= "";
 $project= $project2= $status= $status2= $handler= $handler2= $remarks= $remarks2= $repository = $repository2 = $proj_limit= $specs1=  $specs2= $dead1= $dead2="";
 
 if(!empty($_SESSION['id']) and ($_SESSION['priveleges']==1)){
-	$job_data=mysqli_query($sqlConnect,"SELECT * FROM orders WHERE id='$_SESSION[id]'");
+	$job_data=mysqli_query($sqlConnect2,"SELECT * FROM orders WHERE id='$_SESSION[id]'");
 
 		if(!$job_data) {
 			die();
@@ -309,11 +311,11 @@ if(isset($_POST["accept-btn"])){
 	$id="";
 	if(!empty($_REQUEST["order-id"])) {
 		$orderid=$_REQUEST["order-id"];
-		$history=mysqli_query($sqlConnect,"SELECT * FROM history WHERE orderid='$orderid' ");
+		$history=mysqli_query($sqlConnect2,"SELECT * FROM history WHERE orderid='$orderid' ");
 		while($SR=mysqli_fetch_array($history)){
 			$project= $SR["project"];
 		}
-		$data=mysqli_query($sqlConnect,"SELECT * FROM `orders` WHERE project='$project' or project2='$project'");
+		$data=mysqli_query($sqlConnect2,"SELECT * FROM `orders` WHERE project='$project' or project2='$project'");
 		while($SR=mysqli_fetch_array($data)){
 			$project1= $SR["project"];
 			$project2= $SR["project2"];
@@ -321,12 +323,12 @@ if(isset($_POST["accept-btn"])){
 		}
 		if(!empty($id)){
 			if($project1==$project){
-				mysqli_query($sqlConnect,"UPDATE `orders` SET handler='$_SESSION[email]' ,status1='2' WHERE id='$id' ");
-				mysqli_query($sqlConnect,"UPDATE `history` SET handler='$_SESSION[email]', status1='Assigned to Handler' WHERE orderid='$orderid'");
+				mysqli_query($sqlConnect2,"UPDATE `orders` SET handler='$_SESSION[email]' ,status1='2' WHERE id='$id' ");
+				mysqli_query($sqlConnect2,"UPDATE `history` SET handler='$_SESSION[email]', status1='Assigned to Handler' WHERE orderid='$orderid'");
 			}
 			elseif($project2==$project){
-				mysqli_query($sqlConnect,"UPDATE `orders` SET handler2='$_SESSION[email]', status2='2' WHERE id='$id' ");
-				mysqli_query($sqlConnect,"UPDATE `history` SET handler='$_SESSION[email]', status1='Assigned to Handler' WHERE orderid='$orderid'");
+				mysqli_query($sqlConnect2,"UPDATE `orders` SET handler2='$_SESSION[email]', status2='2' WHERE id='$id' ");
+				mysqli_query($sqlConnect2,"UPDATE `history` SET handler='$_SESSION[email]', status1='Assigned to Handler' WHERE orderid='$orderid'");
 			}
 
 		}
@@ -359,11 +361,11 @@ if(isset($_POST["update-btn"])){
 			$statustxt="Submitted for revisions";
 		if(!empty($_REQUEST["repositoryid"]))
 			$repositoryid=$_REQUEST["repositoryid"];
-		$history=mysqli_query($sqlConnect,"SELECT * FROM history WHERE orderid='$orderid' ");
+		$history=mysqli_query($sqlConnect2,"SELECT * FROM history WHERE orderid='$orderid' ");
 		while($SR=mysqli_fetch_array($history)){
 			$project= $SR["project"];
 		}
-		$data=mysqli_query($sqlConnect,"SELECT * FROM `orders` WHERE project='$project' or project2='$project'");
+		$data=mysqli_query($sqlConnect2,"SELECT * FROM `orders` WHERE project='$project' or project2='$project'");
 		while($SR=mysqli_fetch_array($data)){
 			$project1= $SR["project"];
 			$project2= $SR["project2"];
@@ -371,12 +373,12 @@ if(isset($_POST["update-btn"])){
 		}
 		if(!empty($id)){
 			if($project1==$project){
-				mysqli_query($sqlConnect,"UPDATE `orders` SET status1='$statusid', repository='$repositoryid' WHERE id='$id'");
-				mysqli_query($sqlConnect,"UPDATE `history` SET  status1='$statustxt', repository='$repositoryid' WHERE orderid='$orderid'");
+				mysqli_query($sqlConnect2,"UPDATE `orders` SET status1='$statusid', repository='$repositoryid' WHERE id='$id'");
+				mysqli_query($sqlConnect2,"UPDATE `history` SET  status1='$statustxt', repository='$repositoryid' WHERE orderid='$orderid'");
 			}
 			elseif($project2==$project){
-				mysqli_query($sqlConnect,"UPDATE `orders` SET status2='$statusid', repository2='$repositoryid' WHERE id='$id' ");
-				mysqli_query($sqlConnect,"UPDATE `history` SET  status1='$statustxt', repository='$repositoryid' WHERE orderid='$orderid'");
+				mysqli_query($sqlConnect2,"UPDATE `orders` SET status2='$statusid', repository2='$repositoryid' WHERE id='$id' ");
+				mysqli_query($sqlConnect2,"UPDATE `history` SET  status1='$statustxt', repository='$repositoryid' WHERE orderid='$orderid'");
 			}
 
 		}
@@ -410,9 +412,9 @@ if(isset($_POST["purchase"])){
 			$dead1=trim_data($_REQUEST["dead1"]);
 			$proj_limit= $_SESSION[proj_limit]-1;
 			$update = "UPDATE `orders` SET project='$project',  status1='1', handler='Pending',remarks='$remarks', repository='Pending', specs1='$specs1', dead1='$dead1',proj_limit='$proj_limit' WHERE id='$id' ";
-			mysqli_query($sqlConnect,$update);
+			mysqli_query($sqlConnect2,$update);
 			$insert_history = "INSERT INTO `history` (`id`, `project`, `handler`, `status1`, `repository`, `date1`, `orderid`) VALUES ('$id', '$project', 'Pending', 'Order Confirmed', 'Pending', '$dead1', NULL )";
-			mysqli_query($sqlConnect,$insert_history);
+			mysqli_query($sqlConnect2,$insert_history);
 			header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account_orders.php");
 		}
 
@@ -424,9 +426,9 @@ if(isset($_POST["purchase"])){
 			$dead1=trim_data($_REQUEST["dead1"]);
 			$proj_limit= $_SESSION[proj_limit]-1;
 			$update = "UPDATE `orders` SET project2='$project',  status2='1', handler2='Pending',remarks2='$remarks', repository2='Pending', specs2='$specs1', dead2='$dead1',proj_limit='$proj_limit' WHERE id='$id' ";
-			mysqli_query($sqlConnect,$update);
+			mysqli_query($sqlConnect2,$update);
 			$insert_history = "INSERT INTO `history` (`id`, `project`, `handler`, `status1`, `repository`, `date1`, `orderid`) VALUES ('$id', '$project', 'Pending', 'Order Confirmed', 'Pending', '$dead1', NULL)";
-			mysqli_query($sqlConnect,$insert_history);
+			mysqli_query($sqlConnect2,$insert_history);
 			header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account_orders.php");
 		
 		}
@@ -516,7 +518,7 @@ if(isset($_POST["login-btn"])){
 			else{
 				if($logcount==0){
 					$register = "INSERT INTO `orders` (`id` , `project`, `project2`, `status1`, `status2`, `handler`, `handler2`, `remarks`, `remarks2`, `repository`, `repository2`, `specs1`, `specs2`, `dead1`, `dead2`, `proj_limit`) VALUES ($id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'To be updated by the project handler', 'To be updated by the project handler', NULL, NULL, NULL, NULL,'2')";
-					mysqli_query($sqlConnect,$register);
+					mysqli_query($sqlConnect2,$register);
 					$update = "UPDATE `credentials` SET logcount='1' WHERE id='$id'";
 					mysqli_query($sqlConnect,$update);
 				}
@@ -641,7 +643,7 @@ if(isset($_POST["save-btn"])){
 if(isset($_POST["cancel-1"])){
 	$id= $_SESSION["id"];
 	$update_hist = "UPDATE `history` SET status1='Cancelled', handler='Cancelled', repository='Cancelled', date1='Cancelled' WHERE project='$_SESSION[project]' ";
-	mysqli_query($sqlConnect,$update_hist);
+	mysqli_query($sqlConnect2,$update_hist);
 	$_SESSION["project"]="";
 	$_SESSION["status"]="";
 	$_SESSION["handler"]="";
@@ -651,13 +653,13 @@ if(isset($_POST["cancel-1"])){
 	$_SESSION["dead1"]="";
 	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$update = "UPDATE `orders` SET project=NULL, status1=NULL, handler=NULL, remarks=NULL, repository='Pending', specs1=NULL, dead1=NULL,proj_limit='$proj_limit' WHERE id='$id' ";
-	mysqli_query($sqlConnect,$update);
+	mysqli_query($sqlConnect2,$update);
 }
 
 if(isset($_POST["cancel-2"])){
 	$id= $_SESSION["id"];
 	$update_hist = "UPDATE `history` SET status1='Cancelled', handler='Cancelled',repository='Cancelled', date1='Cancelled' WHERE project='$_SESSION[project2]' ";
-	mysqli_query($sqlConnect,$update_hist);
+	mysqli_query($sqlConnect2,$update_hist);
 	$_SESSION["project2"]="";
 	$_SESSION["status2"]="";
 	$_SESSION["handler2"]="";
@@ -667,13 +669,13 @@ if(isset($_POST["cancel-2"])){
 	$_SESSION["dead2"]="";
 	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$update = "UPDATE `orders` SET project2=NULL, status2=NULL, handler2=NULL, remarks2=NULL, repository2='Pending',  specs2=NULL, dead2=NULL, proj_limit='$proj_limit' WHERE id='$id' ";
-	mysqli_query($sqlConnect,$update);
+	mysqli_query($sqlConnect2,$update);
 }
 
 if(isset($_POST["complete-1"])){
 	$id= $_SESSION["id"];
 	$update_hist = "UPDATE `history` SET status1='Completed' WHERE project='$_SESSION[project]' ";
-	mysqli_query($sqlConnect,$update_hist);
+	mysqli_query($sqlConnect2,$update_hist);
 	$_SESSION["project"]="";
 	$_SESSION["status"]="";
 	$_SESSION["handler"]="";
@@ -683,14 +685,14 @@ if(isset($_POST["complete-1"])){
 	$_SESSION["dead1"]="";
 	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$update = "UPDATE `orders` SET project=NULL, status1=NULL, handler=NULL, remarks=NULL, repository='Pending', specs1=NULL, dead1=NULL,proj_limit='$proj_limit' WHERE id='$id' ";
-	mysqli_query($sqlConnect,$update);
+	mysqli_query($sqlConnect2,$update);
 
 }
 
 if(isset($_POST["complete-2"])){
 	$id= $_SESSION["id"];
 	$update_hist = "UPDATE `history` SET status1='Completed' WHERE project='$_SESSION[project2]' ";
-	mysqli_query($sqlConnect,$update_hist);
+	mysqli_query($sqlConnect2,$update_hist);
 	$_SESSION["project2"]="";
 	$_SESSION["status2"]="";
 	$_SESSION["handler2"]="";
@@ -700,7 +702,7 @@ if(isset($_POST["complete-2"])){
 	$_SESSION["dead2"]="";
 	$proj_limit= $_SESSION["proj_limit"] + 1;
 	$update = "UPDATE `orders` SET project2=NULL, status2=NULL, handler2=NULL, remarks2=NULL, repository2='Pending',  specs2=NULL, dead2=NULL, proj_limit='$proj_limit' WHERE id='$id' ";
-	mysqli_query($sqlConnect,$update);
+	mysqli_query($sqlConnect2,$update);
 
 }
 

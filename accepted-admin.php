@@ -14,7 +14,7 @@ if ($_SESSION["priveleges"]==1){
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
 $email=$_SESSION["email"];
-$data=mysqli_query($sqlConnect,"SELECT * FROM `history` WHERE handler='$email' AND status1!='Completed' ");
+$data=mysqli_query($sqlConnect2,"SELECT * FROM `history` WHERE handler='$email' AND status1!='Completed' ");
 
 
 ?>

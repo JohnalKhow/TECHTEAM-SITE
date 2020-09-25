@@ -13,7 +13,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	$id=$_SESSION["id"];
 
 	
-	$data=mysqli_query($sqlConnect,"SELECT * FROM `history` WHERE id='$id' ORDER BY date1 DESC ");
+	$data=mysqli_query($sqlConnect2,"SELECT * FROM `history` WHERE id='$id' ORDER BY date1 DESC ");
 	
 
 	if($_SESSION["priveleges"]==0) {
