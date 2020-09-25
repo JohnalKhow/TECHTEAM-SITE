@@ -76,7 +76,7 @@
 
             <form id="Account" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <label>Order Details:</label><br>
-                <input type="text" name="project-name" class="form-textbox-lengthy" maxlength="8"  placeholder="Program Name">
+                <input type="text" name="project-name" class="form-textbox-lengthy" maxlength="10"  placeholder="Program Name">
 				<input type="text" name="remarks" class="form-textbox-lengthy" placeholder="Remarks">
 				<input type="text" name="specifications" class="form-textbox-lengthy" placeholder="Specifications e.g. Operating System">
 				<br><br>
