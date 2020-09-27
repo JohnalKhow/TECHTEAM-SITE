@@ -10,11 +10,11 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	$bool = false;
 }
 
-if ($_SESSION["priveleges"]==1){
+if ($_SESSION["priveleges"] == 1) {
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
-$email=$_SESSION["email"];
-$data=mysqli_query($sqlConnect2,"SELECT * FROM `history` WHERE handler='$email' AND status1!='Completed' ");
+$email = $_SESSION["email"];
+$data = mysqli_query($sqlConnect2, "SELECT * FROM `history` WHERE handler='$email' AND status1!='Completed' ");
 
 
 ?>
@@ -40,32 +40,32 @@ $data=mysqli_query($sqlConnect2,"SELECT * FROM `history` WHERE handler='$email' 
 
 			<div class="account-navigation">
 				<img src="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/assets/Images/user-icon.png" id="user-icon">
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php" >Order History</a>
-				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/orders-admin.php" >Job Orders</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php">Order History</a>
+				<a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/orders-admin.php">Job Orders</a>
 				<a href="" class="active">Accepted Orders</a>
 			</div>
 
 			<div class="order-history">
-				<?php echo "<table style='width:110%'><tr><td>Order ID:</td><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>"; 
-					 ?> 
-				<?php while($SR=mysqli_fetch_array($data)): 
-							$project= $SR["project"];
-							$handler = $SR["handler"];
-							$status = $SR["status1"];
-							$repository = $SR["repository"];
-							$date = $SR["date1"]; 
-							$orderid= $SR["orderid"];
-							echo "<tr><td>".$orderid. "</td> <td>". $project . "</td> <td>". $handler . "</td><td>". $status ."</td><td>". $repository . "</td><td>" . $date ."</td></tr> <tr></tr>"; 
-							?>	
+				<?php echo "<table style='width:110%'><tr><td>Order ID:</td><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>";
+				?>
+				<?php while ($SR = mysqli_fetch_array($data)) :
+					$project = $SR["project"];
+					$handler = $SR["handler"];
+					$status = $SR["status1"];
+					$repository = $SR["repository"];
+					$date = $SR["date1"];
+					$orderid = $SR["orderid"];
+					echo "<tr><td>" . $orderid . "</td> <td>" . $project . "</td> <td>" . $handler . "</td><td>" . $status . "</td><td>" . $repository . "</td><td>" . $date . "</td></tr> <tr></tr>";
+				?>
 				<?php endwhile; ?>
 				<?php echo "</table>"; ?>
 			</div>
 
 			<form id="update-order" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 				<label id="labels">Enter Order ID:</label><br>
-				<input type="text" name="order-id"  class="form-textbox" placeholder="Order ID e.g. 1">
-				<input type="text" name="statusid"  class="form-textbox" maxlength="1" placeholder="Status">
-				<input type="text" name="repositoryid"  class="form-textbox" placeholder="Repository">
+				<input type="text" name="order-id" class="form-textbox" placeholder="Order ID e.g. 1">
+				<input type="text" name="statusid" class="form-textbox" maxlength="1" placeholder="Status">
+				<input type="text" name="repositoryid" class="form-textbox" placeholder="Repository">
 				<button type="submit" name="update-btn" class="update-button">Update</button>
 			</form>
 

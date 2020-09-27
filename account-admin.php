@@ -10,11 +10,11 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	$bool = false;
 }
 
-if ($_SESSION["priveleges"]==1){
+if ($_SESSION["priveleges"] == 1) {
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php");
 }
 
-$data=mysqli_query($sqlConnect2,"SELECT * FROM `history` ");
+$data = mysqli_query($sqlConnect2, "SELECT * FROM `history` ");
 
 
 ?>
@@ -46,20 +46,20 @@ $data=mysqli_query($sqlConnect2,"SELECT * FROM `history` ");
 			</div>
 
 			<div class="order-history">
-				<?php echo "<table style='width:110%'><tr><td>Order ID:</td><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>"; 
-					 ?> 
-				<?php while($SR=mysqli_fetch_array($data)): 
-							$project= $SR["project"];
-							$handler = $SR["handler"];
-							$status = $SR["status1"];
-							$repository = $SR["repository"];
-							$date = $SR["date1"]; 
-							$orderid= $SR["orderid"];
-							echo "<tr><td>".$orderid. "</td> <td>". $project . "</td> <td>". $handler . "</td><td>". $status ."</td><td>". $repository . "</td><td>" . $date ."</td></tr> <tr></tr>"; 
-							?>	
+				<?php echo "<table style='width:110%'><tr><td>Order ID:</td><td>Project Name:</td><td>Handler:</td><td>Status:</td><td>Repository:</td><td>Completion Date:</td></tr><tr></tr><tr></tr><tr></tr>";
+				?>
+				<?php while ($SR = mysqli_fetch_array($data)) :
+					$project = $SR["project"];
+					$handler = $SR["handler"];
+					$status = $SR["status1"];
+					$repository = $SR["repository"];
+					$date = $SR["date1"];
+					$orderid = $SR["orderid"];
+					echo "<tr><td>" . $orderid . "</td> <td>" . $project . "</td> <td>" . $handler . "</td><td>" . $status . "</td><td>" . $repository . "</td><td>" . $date . "</td></tr> <tr></tr>";
+				?>
 				<?php endwhile; ?>
 				<?php echo "</table>"; ?>
-				</div>
+			</div>
 
 		</div>
 

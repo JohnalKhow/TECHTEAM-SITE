@@ -10,7 +10,7 @@ if (!$_SESSION["company"] or !$_SESSION["country"] or !$_SESSION["city"] or !$_S
 	$bool = false;
 }
 
-if($_SESSION["priveleges"]==0) {
+if ($_SESSION["priveleges"] == 0) {
 	header("location: http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account-admin.php");
 }
 
@@ -42,9 +42,9 @@ if($_SESSION["priveleges"]==0) {
 				<input type="text" name="username" value="<?php echo $_SESSION["username"]; ?>" class="form-textbox-lengthy" placeholder="Full Name">
 				<input type="text" name="email" value="<?php echo $_SESSION["email"]; ?>" class="form-textbox" placeholder="Email Address">
 				<br><br>
-				<label id="labels">Birthday :</label> 
+				<label id="labels">Birthday :</label>
 				<input type="date" id="birthday" name="birthday" value="<?php echo $_SESSION["birthday"]; ?>">
-				<label id="labels">Gender :</label> 
+				<label id="labels">Gender :</label>
 				<label id="labels">Male </label>
 				<input type="radio" name="gender" value="Male" <?php echo ($_SESSION['gender'] == "Male") ? 'checked="checked"' : ''; ?>>
 				<label id="labels">Female </label>
@@ -53,11 +53,11 @@ if($_SESSION["priveleges"]==0) {
 				<input type="radio" name="gender" value="LGBTQ+" <?php echo ($_SESSION['gender'] == "LGBTQ+") ? 'checked="checked"' : ''; ?>>
 				<br><br>
 				<label id="labels">Country :</label><br>
-				<select name="country" >
+				<select name="country">
 					<?php foreach ($countries as $key => $val) { ?>
 						<option value="<?php echo $key; ?>" <?php
-							if ($key == $_SESSION['country']) echo ' selected="selected"'; ?>><?php echo $val; ?></option><?php
-																																		} ?>
+															if ($key == $_SESSION['country']) echo ' selected="selected"'; ?>><?php echo $val; ?></option><?php
+																																						} ?>
 				</select>
 				<br><br>
 				<label id="labels">Company Details :</label><br>
