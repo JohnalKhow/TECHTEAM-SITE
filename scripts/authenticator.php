@@ -13,7 +13,8 @@ if(!$selectDB or !$selectDB2) {
     die("Can't find the database!".mysqli_error());
 }
 //INIT
-$countries = array("AF" => "Afghanistan",
+$countries = array(
+"AF" => "Afghanistan",
 "AX" => "Åland Islands",
 "AL" => "Albania",
 "DZ" => "Algeria",
@@ -261,7 +262,6 @@ $error_reg=array();
 $error_log=array();
 $error_acc=array();
 $error_buy=array();
-$IMS_desc="The Inventory Management System is a fully capable blah blah blah";
 $username ="";
 $email= "";
 $project= $project2= $status= $status2= $handler= $handler2= $remarks= $remarks2= $repository = $repository2 = $proj_limit= $specs1=  $specs2= $dead1= $dead2="";

@@ -30,6 +30,18 @@
     box-shadow: 3px 3px 9px 3px rgba(0, 0, 0, .2);
 }
 
+.row-container{
+	width: 1400px;
+	height: auto;
+	position: relative;
+	margin: 6% auto;
+	background: #E8F1F2;
+	padding: 5px;
+	overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 3px 3px 9px 3px rgba(0, 0, 0, .2);
+}
+
 #products {
     width: 340px;
     height: 240px;
@@ -140,6 +152,13 @@
     animation-duration: 1.5s;
 }
 
+.paragraph{
+    position: relative;
+    font-family: Ripple;
+    font-size: 20pt;
+    text-align: justify;
+    margin: 50px;
+}
 @-webkit-keyframes fade {
     from {
         opacity: .4

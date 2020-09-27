@@ -6,7 +6,7 @@
 <head>
     <title> TechTeam </title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=9">
+    <link rel="stylesheet" href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/products.css?version=13">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <?php else: ?>
             <div class="navigation">
             <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-            <a href="#about">About us</a>
+            <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutus.php">About us</a>
             <div class="navigation-right">
                 <a href="loggedin.php?logout=1">Logout</a>
                 <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>
@@ -50,22 +50,28 @@
 
         <?php if(empty($_SESSION['username'])): ?>
             <label class="body-text">Description:</label><br><br>
-            <p class="description"><?php echo $IMS_desc; ?></p><br>
+            <p class="description">The Point of Sale System is a fully capable cash register system that automatically creates the <br> necessary sales log and computes for the necessary totals. </p><br>
+            <br>
             <div class="bullets">
-            <li>Full database integration</li>
+            <li>Easy to Use</li>
+            <li>Customizeable</li>
+            <li>Comes with admin control</li>
             <li>Comes with a Graphical User Interface</li>
             <li>Full database integration</li>
             </div>
             
             <form id="Account" class="form-input-not" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-				<button type="submit" name="purchase-not" class="buy">Buy</button>
+				<button type="submit" name="purchase-not" class="buy-2">Buy</button>
             </form>
 
         <?php else: ?>
             <label class="body-text">Description:</label><br><br>
-            <p class="description"><?php echo $IMS_desc; ?></p><br>
+            <p class="description">The Point of Sale System is a fully capable cash register system that automatically creates the <br> necessary sales log and computes for the necessary totals. </p><br>
+            <br>
             <div class="bullets">
-            <li>Full database integration</li>
+            <li>Easy to Use</li>
+            <li>Customizeable</li>
+            <li>Comes with admin control</li>
             <li>Comes with a Graphical User Interface</li>
             <li>Full database integration</li>
             </div>

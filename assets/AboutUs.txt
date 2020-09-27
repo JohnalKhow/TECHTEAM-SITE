@@ -1,8 +1,0 @@
-TechTeam is a company that wants to make a change in the hardware/software e-commerce market.
-TechTeam offers a wide variety of products to its customers which they can make a job request of
-in the TechTeam website. TechTeam was started by a group of highschool students who sought to hone
-their technological knowledge through various works and projects. Through these projects and works,
-the company was able to gain a reputation for fulfilling projects among students and small companies. 
-This became the foundation of the company pursuing more professional level works that could be used 
-in bigger companies. TechTeam does not forget their roots, as such, they make sure that their products
-and services are open to customers from the lower end of the spectrum to the higher end.

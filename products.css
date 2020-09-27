@@ -20,7 +20,7 @@
 
 .rows{
 	width: 1400px;
-	height: 550px;
+	height: 600px;
 	position: relative;
 	margin: 6% auto;
 	background: #E8F1F2;
@@ -89,7 +89,7 @@
     font-size: 12pt;
     text-align: left;
     float: right;
-    top: 30%;
+    top: 32%;
     right: 33%;
     position: absolute;
 
@@ -97,7 +97,7 @@
 .form-input {
     top: 35%;
     float: right;
-    right: -25%;
+    right: -40%;
     position: relative;
 }
 
@@ -132,14 +132,24 @@
 .description{
     font-family: Ripple;
     font-size: 12pt;
-    text-align: right;
+    text-align: left;
     float: right;
     top: 10%;
-    right: 20%;
+    right: 10%;
     position: relative;
 
 }
 
+.description-2{
+    font-family: Ripple;
+    font-size: 12pt;
+    text-align: left;
+    float: right;
+    top: 10%;
+    right: 10%;
+    position: relative;
+
+}
 .slideshow-container {
     max-width: 400px;
     max-height: 500px;
@@ -217,7 +227,7 @@
 .buy{
     padding: 10px 10px; 
     cursor: pointer;
-    right: 5%;
+    right: 20%;
     font-family: Ripple;
     font-size: 12pt;
     position: absolute;
@@ -229,10 +239,24 @@
 	border-radius: 10%;
 
 }
+.buy-2{
+    padding: 10px 10px; 
+    cursor: pointer;
+    right: 160%;
+    font-family: Ripple;
+    font-size: 12pt;
+    position: relative;
+    float: right;
+	background: #054D9F;
+	color: white;
+	border: 0;
+	outline: none;
+	border-radius: 10%;
 
+}
 #alerts{
     color: red;
-    top:28%;
-    left: 58%;
-    position: relative;
+    top:50%;
+    left: 70%;
+    position: absolute;
 }

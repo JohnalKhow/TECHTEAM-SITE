@@ -23,7 +23,7 @@
         <?php else: ?>
             <div class="navigation">
             <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/loggedin.php">Home</a>
-            <a href="#about">About us</a>
+            <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/aboutus.php">About us</a>
             <div class="navigation-right">
                 <a href="loggedin.php?logout=1">Logout</a>
                 <a href="http://Localhost/TECHTEAM-SITE/TECHTEAM-SITE/account.php">Account</a>
@@ -50,24 +50,28 @@
 
         <?php if(empty($_SESSION['username'])): ?>
             <label class="body-text">Description:</label><br><br>
-            <p class="description"><?php echo $IMS_desc; ?></p><br>
+            <p class="description-2">The inventory management system is a fully capable inventory tracking system that tracks items, <br> stocks, and sales.  </p><br>
+           <br>
             <div class="bullets">
-            <li>Full database integration</li>
-            <li>Comes with a Graphical User Interface</li>
-            <li>Full database integration</li>
+            <li>Item Sorting</li>
+            <li>Stock Tracker</li>
+            <li>Inventory Modification Capabilities</li>
+            <li>Customizable Graphical User Interface</li>
             </div>
             
             <form id="Account" class="form-input-not" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-				<button type="submit" name="purchase-not" class="buy">Buy</button>
+				<button type="submit" name="purchase-not" class="buy-2">Buy</button>
             </form>
 
         <?php else: ?>
             <label class="body-text">Description:</label><br><br>
-            <p class="description"><?php echo $IMS_desc; ?></p><br>
+            <p class="description-2">The inventory management system is a fully capable inventory tracking system that tracks items, <br> stocks, and sales.  </p><br>
+           <br>
             <div class="bullets">
-            <li>Full database integration</li>
-            <li>Comes with a Graphical User Interface</li>
-            <li>Full database integration</li>
+            <li>Item Sorting</li>
+            <li>Stock Tracker</li>
+            <li>Inventory Modification Capabilities</li>
+            <li>Customizable Graphical User Interface</li>
             </div>
 
             <form id="Account" class="form-input" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
